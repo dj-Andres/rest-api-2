@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'billetera'
+    database: 'rest-api'
   });
 
   connection.connect(error => {
