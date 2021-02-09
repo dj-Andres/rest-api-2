@@ -5,10 +5,13 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan');
 const pkg=require('../package.json');
 const ProductsRoutes=require('./routes/products.routes');
-
+const AuthRoutes=require('./routes/auth.routes');
+const config =require('./config');
 const app = express();
 
 app.set('pkg',pkg);
+
+app.set('SECRET',config.SECRET);
 
 app.use(morgan('dev'));
 
@@ -26,6 +29,7 @@ app.get('/',(req,res)=>{
     });
 });
 
-app.use('/products',ProductsRoutes);
+app.use('/api/products',ProductsRoutes);
+app.use('/api/auth',AuthRoutes);
 
 module.exports = app;
