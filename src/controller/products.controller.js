@@ -8,7 +8,10 @@ const Products={};
         if (err)
           res.send(err);
           console.log('res', result);
-        res.status(200).json(result);
+        res.status(200).json({
+            succes:1,
+            data:result    
+        });
       });
 }
 
@@ -17,10 +20,14 @@ Products.getProductsById=async (req,res)=>{
         if(err) throw err;
 
         if(producto.length > 0){
-            res.status(200).json(producto);
+            res.status(200).json({
+                succes:1,
+                data:producto
+            });
         }else{
             res.json({
-                "message":"No encontrado"
+                succes:0,
+                message:"No encontrado"
             });
         }
          

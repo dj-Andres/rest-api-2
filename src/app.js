@@ -7,6 +7,7 @@ const pkg=require('../package.json');
 const ProductsRoutes=require('./routes/products.routes');
 const AuthRoutes=require('./routes/auth.routes');
 const config =require('./config');
+
 const app = express();
 
 app.set('pkg',pkg);

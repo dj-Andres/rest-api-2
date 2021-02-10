@@ -1,13 +1,13 @@
 {
   "name": "rest-api-practica",
   "version": "1.0.0",
-  "description": "",
+  "description": "REST-FULL",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Diego Jimenez",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
