@@ -4,6 +4,7 @@ const Product=function(product){
     this.nombre=product.nombre;
     this.categoria=product.categoria;
     this.precio=product.precio;
+    this.url=product.url;
 }
 
 Product.getAllProducts=(result)=>{
@@ -31,6 +32,18 @@ Product.getProductById=(ProductId,result)=>{
 
 Product.createProducts=(newProduct,result)=>{
     sql.query("INSERT INTO productos SET ?",newProduct,(err,res)=>{
+        if(err){
+            console.log("error: ", err);
+            result(err, null);
+        }else{
+            console.log(res.insertId);
+            result(null, res.insertId);
+        }
+    });
+};
+
+Product.valiteProduct=(nombre,result)=>{
+    sql.query("SELECT nombre FROM productos WHERE nombre = ? ",nombre,(err,res)=>{
         if(err){
             console.log("error: ", err);
             result(err, null);
