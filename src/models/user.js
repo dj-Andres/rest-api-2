@@ -31,7 +31,7 @@ User.createUser=(newUser,result)=>{
 };
 
 User.getUser=(email,result)=>{
-    sql.query("SELECT email,password FROM usuarios WHERE email = ?",email,(err,res)=>{
+    sql.query("SELECT id_usuario,email,password FROM usuarios WHERE email = ?",email,(err,res)=>{
         if(err){
             console.log("error: ", err);
             result(err, null);

@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const pkg = require("../package.json");
 const ProductsRoutes = require("./routes/products.routes");
 const AuthRoutes = require("./routes/auth.routes");
+const VentasRoutes = require("./routes/venta.routes");
 const config = require("./config");
 
 const app = express();
@@ -32,6 +33,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/products", ProductsRoutes);
 app.use("/api/auth", AuthRoutes);
+app.use("/api/ventas",VentasRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
