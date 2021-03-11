@@ -17,6 +17,18 @@ Venta.crearVenta = (newVenta, result) => {
   });
 };
 
+Venta.detalleVenta = (newDetalle, result) => {
+  sql.query("INSERT INTO detalle__venta SET ?", newDetalle, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+    } else {
+      console.log(res.insertId);
+      result(null, res.insertId);
+    }
+  });
+};
+
 Venta.lastVenta = (result) => {
   sql.query("SELECT MAX(id_venta) as ultima_venta FROM venta", (err, res) => {
     if (err) {

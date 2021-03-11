@@ -1,22 +1,22 @@
-const jwt=require('jsonwebtoken');
-const config=require('../config');
+const jwt = require("jsonwebtoken");
+const config = require("../config");
 module.exports = {
-    verifyToken:(req,res,next)=>{
-        try{
-            const token= req.headers["x-acces-token"];
-        
-            console.log(token);
+  verifyToken: (req, res, next) => {
+    try {
+      const token = req.headers["x-acces-token"];
 
-            if(!token) return res.status(404).json({succes:0,message:'Not access'})
+      console.log(token);
 
-            const decode=jwt.verify(token,config.SECRET);
+      if (!token)
+        return res.status(404).json({ succes: 0, message: "Not access" });
 
-            console.log(decode);
+      const decode = jwt.verify(token, config.SECRET);
+    
+      console.log(decode);
 
-            next()
-        }catch(error){
-            return res.status(401).json({succes:0,message:'No Authorizacion'})
-        }
-        
-    }   
-}
+      next();
+    } catch (error) {
+      return res.status(401).json({ succes: 0, message: "No Authorizacion" });
+    }
+  },
+};
